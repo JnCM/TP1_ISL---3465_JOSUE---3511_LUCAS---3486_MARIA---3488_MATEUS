@@ -1,0 +1,133 @@
+#! c:/iverilog/bin/vvp
+:ivl_version "0.10.0 (devel)" "(s20130827)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010B3060 .scope module, "Numero" "Numero" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A"
+    .port_info 1 /INPUT 1 "B"
+    .port_info 2 /INPUT 1 "C"
+    .port_info 3 /INPUT 1 "D"
+    .port_info 4 /OUTPUT 1 "d1"
+    .port_info 5 /OUTPUT 1 "d2"
+    .port_info 6 /OUTPUT 1 "d3"
+    .port_info 7 /OUTPUT 1 "d4"
+    .port_info 8 /OUTPUT 1 "d5"
+    .port_info 9 /INPUT 1 "reset"
+    .port_info 10 /INPUT 1 "ready"
+o00FB3C2C .functor BUFZ 1, C4<z>; HiZ drive
+v010B3130_0 .net "A", 0 0, o00FB3C2C;  0 drivers
+o00FB3C44 .functor BUFZ 1, C4<z>; HiZ drive
+v010BEBA8_0 .net "B", 0 0, o00FB3C44;  0 drivers
+o00FB3C5C .functor BUFZ 1, C4<z>; HiZ drive
+v010BEC00_0 .net "C", 0 0, o00FB3C5C;  0 drivers
+o00FB3C74 .functor BUFZ 1, C4<z>; HiZ drive
+v010BEC58_0 .net "D", 0 0, o00FB3C74;  0 drivers
+v010BECB0_0 .var "d1", 0 0;
+v010BED08_0 .var "d2", 0 0;
+v010BED60_0 .var "d3", 0 0;
+v010BEDB8_0 .var "d4", 0 0;
+v010BEE10_0 .var "d5", 0 0;
+o00FB3D04 .functor BUFZ 1, C4<z>; HiZ drive
+v010BEEB0_0 .net "ready", 0 0, o00FB3D04;  0 drivers
+o00FB3D1C .functor BUFZ 1, C4<z>; HiZ drive
+v010BEF08_0 .net "reset", 0 0, o00FB3D1C;  0 drivers
+E_010B7FC8 .event edge, v010BEEB0_0;
+E_010B7FF0 .event edge, v010BEF08_0;
+    .scope S_010B3060;
+T_0 ;
+    %wait E_010B7FF0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BECB0_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BED08_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BED60_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BEDB8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BEE10_0, 0, 0;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_010B3060;
+T_1 ;
+    %wait E_010B7FC8;
+    %load/v 8, v010BEF08_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.0, 8;
+    %load/v 8, v010B3130_0, 1;
+    %load/v 9, v010BEBA8_0, 1;
+    %load/v 10, v010BEC58_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v010BEBA8_0, 1;
+    %load/v 10, v010BEC00_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BECB0_0, 0, 8;
+    %load/v 8, v010BEBA8_0, 1;
+    %load/v 9, v010B3130_0, 1;
+    %load/v 10, v010BEC00_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v010BEC58_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BED08_0, 0, 8;
+    %load/v 8, v010BEBA8_0, 1;
+    %load/v 9, v010BEC00_0, 1;
+    %load/v 10, v010BEC58_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BED60_0, 0, 8;
+    %load/v 8, v010BEBA8_0, 1;
+    %load/v 9, v010BEC00_0, 1;
+    %inv 9, 1;
+    %and 8, 9, 1;
+    %load/v 9, v010BEBA8_0, 1;
+    %inv 9, 1;
+    %load/v 10, v010BEC00_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v010BEC00_0, 1;
+    %load/v 10, v010BEC58_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BEDB8_0, 0, 8;
+    %load/v 8, v010BEBA8_0, 1;
+    %load/v 9, v010BEC00_0, 1;
+    %inv 9, 1;
+    %and 8, 9, 1;
+    %load/v 9, v010B3130_0, 1;
+    %inv 9, 1;
+    %load/v 10, v010BEC00_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v010BEC58_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v010BEBA8_0, 1;
+    %inv 9, 1;
+    %load/v 10, v010BEC00_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v010BEE10_0, 0, 8;
+T_1.0 ;
+    %jmp T_1;
+    .thread T_1, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Numero.v";

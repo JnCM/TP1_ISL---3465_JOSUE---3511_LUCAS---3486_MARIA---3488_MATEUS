@@ -1,0 +1,228 @@
+#! c:/iverilog/bin/vvp
+:ivl_version "0.10.0 (devel)" "(s20130827)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0116ABE8 .scope module, "testbench" "testbench" 2 2;
+ .timescale 0 0;
+v0116B5E0_0 .var "A", 0 0;
+v0116B638_0 .var "B", 0 0;
+v0116B690_0 .var "C", 0 0;
+v0116B6E8_0 .var "D", 0 0;
+v00FDE5A0_0 .net "d1", 0 0, v00FB2EB8_0;  1 drivers
+v00FDE180_0 .net "d2", 0 0, v01162FD8_0;  1 drivers
+v00FDE288_0 .net "d3", 0 0, v01163030_0;  1 drivers
+v00FDE5F8_0 .net "d4", 0 0, v01163088_0;  1 drivers
+v00FDE700_0 .net "d5", 0 0, v011630E0_0;  1 drivers
+v00FDE1D8_0 .var "ready", 0 0;
+v00FDE390_0 .var "reset", 0 0;
+S_00FB2D90 .scope module, "moduloNumero" "Numero" 2 5, 3 1 0, S_0116ABE8;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A"
+    .port_info 1 /INPUT 1 "B"
+    .port_info 2 /INPUT 1 "C"
+    .port_info 3 /INPUT 1 "D"
+    .port_info 4 /OUTPUT 1 "d1"
+    .port_info 5 /OUTPUT 1 "d2"
+    .port_info 6 /OUTPUT 1 "d3"
+    .port_info 7 /OUTPUT 1 "d4"
+    .port_info 8 /OUTPUT 1 "d5"
+    .port_info 9 /INPUT 1 "reset"
+    .port_info 10 /INPUT 1 "ready"
+v0116ACB8_0 .net "A", 0 0, v0116B5E0_0;  1 drivers
+v00FB1790_0 .net "B", 0 0, v0116B638_0;  1 drivers
+v00FB17E8_0 .net "C", 0 0, v0116B690_0;  1 drivers
+v00FB2E60_0 .net "D", 0 0, v0116B6E8_0;  1 drivers
+v00FB2EB8_0 .var "d1", 0 0;
+v01162FD8_0 .var "d2", 0 0;
+v01163030_0 .var "d3", 0 0;
+v01163088_0 .var "d4", 0 0;
+v011630E0_0 .var "d5", 0 0;
+v01163138_0 .net "ready", 0 0, v00FDE1D8_0;  1 drivers
+v0116B588_0 .net "reset", 0 0, v00FDE390_0;  1 drivers
+E_00FA3A38 .event edge, v01163138_0;
+E_00FA38D0 .event edge, v0116B588_0;
+    .scope S_00FB2D90;
+T_0 ;
+    %wait E_00FA38D0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v00FB2EB8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01162FD8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01163030_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01163088_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011630E0_0, 0, 0;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_00FB2D90;
+T_1 ;
+    %wait E_00FA3A38;
+    %load/v 8, v0116B588_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.0, 8;
+    %load/v 8, v0116ACB8_0, 1;
+    %load/v 9, v00FB1790_0, 1;
+    %load/v 10, v00FB2E60_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v00FB1790_0, 1;
+    %load/v 10, v00FB17E8_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v00FB2EB8_0, 0, 8;
+    %load/v 8, v00FB1790_0, 1;
+    %load/v 9, v0116ACB8_0, 1;
+    %load/v 10, v00FB17E8_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v00FB2E60_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01162FD8_0, 0, 8;
+    %load/v 8, v00FB1790_0, 1;
+    %load/v 9, v00FB17E8_0, 1;
+    %load/v 10, v00FB2E60_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01163030_0, 0, 8;
+    %load/v 8, v00FB1790_0, 1;
+    %load/v 9, v00FB17E8_0, 1;
+    %inv 9, 1;
+    %and 8, 9, 1;
+    %load/v 9, v00FB1790_0, 1;
+    %inv 9, 1;
+    %load/v 10, v00FB17E8_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v00FB17E8_0, 1;
+    %load/v 10, v00FB2E60_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01163088_0, 0, 8;
+    %load/v 8, v00FB1790_0, 1;
+    %load/v 9, v00FB17E8_0, 1;
+    %inv 9, 1;
+    %and 8, 9, 1;
+    %load/v 9, v0116ACB8_0, 1;
+    %inv 9, 1;
+    %load/v 10, v00FB17E8_0, 1;
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v00FB2E60_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %load/v 9, v00FB1790_0, 1;
+    %inv 9, 1;
+    %load/v 10, v00FB17E8_0, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011630E0_0, 0, 8;
+T_1.0 ;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0116ABE8;
+T_2 ;
+    %vpi_call 2 7 "$dumpfile", "Numero.vcd" {0 0};
+    %vpi_call 2 8 "$dumpvars", 1'sb0, S_0116ABE8 {0 0};
+    %vpi_call 2 9 "$display", "Conversao para codigo morse:" {0 0};
+    %vpi_call 2 10 "$monitor", "%b%b%b%b = %b%b%b%b%b", v0116B5E0_0, v0116B638_0, v0116B690_0, v0116B6E8_0, v00FDE700_0, v00FDE5F8_0, v00FDE288_0, v00FDE180_0, v00FDE5A0_0 {0 0};
+    %end;
+    .thread T_2;
+    .scope S_0116ABE8;
+T_3 ;
+    %set/v v00FDE390_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE390_0, 0, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 0, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 1, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 1, 1;
+    %set/v v0116B6E8_0, 0, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 1, 1;
+    %set/v v0116B6E8_0, 1, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 1, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 0, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 1, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 1, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 1, 1;
+    %set/v v0116B690_0, 1, 1;
+    %set/v v0116B6E8_0, 0, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 0, 1;
+    %set/v v0116B638_0, 1, 1;
+    %set/v v0116B690_0, 1, 1;
+    %set/v v0116B6E8_0, 1, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 1, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 0, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00FDE1D8_0, 0, 1;
+    %set/v v0116B5E0_0, 1, 1;
+    %set/v v0116B638_0, 0, 1;
+    %set/v v0116B690_0, 0, 1;
+    %set/v v0116B6E8_0, 1, 1;
+    %set/v v00FDE1D8_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 26 "$finish" {0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "./Numero.v";
